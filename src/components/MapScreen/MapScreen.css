@@ -1,0 +1,13 @@
+.leaflet-container{
+  height: 400px;
+}
+
+.counter-container{
+  height:80px;
+  display:flex;
+  justify-content:center;
+}
+
+.counter-container div{
+  align-self: center;
+}
