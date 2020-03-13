@@ -19,7 +19,6 @@ const MapScreen = ({onCounterChange}) => {
   }
 
   const deleteMarker = (position) =>{
-    //const marker = e.latlng;
     setMarkers(prev => {
       setMarkers(prev => prev.filter((val)=>val !== position));
     })
