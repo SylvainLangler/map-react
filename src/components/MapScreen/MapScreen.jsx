@@ -18,11 +18,10 @@ const MapScreen = ({onCounterChange}) => {
     setCounter(prev => prev+1);
   }
 
-  const deleteMarker = (e) =>{
-    const marker = e.latlng;
+  const deleteMarker = (position) =>{
+    //const marker = e.latlng;
     setMarkers(prev => {
-      prev.splice(marker, 1);
-      return prev;
+      setMarkers(prev => prev.filter((val)=>val !== position));
     })
     setCounter(prev => prev-1);
   }
@@ -40,8 +39,9 @@ const MapScreen = ({onCounterChange}) => {
           {markers.map((position, idx) =>
             <Marker key={`marker-${idx}`} position={position}>
               <Popup>
-                <div>Popup</div>
-                <button onClick={ deleteMarker }>Supprimer</button>
+                <span>Latitude : {position.lat}</span><br/>
+                <span>Longitude : {position.lng}</span><br/>
+                <button onClick={ () => { deleteMarker(position) }}>Supprimer</button>
               </Popup>
             </Marker>
           )}
